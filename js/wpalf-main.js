@@ -120,9 +120,9 @@ jQuery(document).ready(function($) {
                         if (data.code == 200) { 
                             $('#wpalf-div-forms p.status').css('color', 'green');
                         }
-                        if (data.loggedin == true){
-                            document.location.href = wpalf_login_object.redirecturl;
-                        }
+                        // if (data.loggedin == true){
+                        //     document.location.href = wpalf_login_object.redirecturl;
+                        // }
                     },
                     error: function() {
                         $('#wpalf-div-forms p.status').text('Ошибка на сервере');
