@@ -217,7 +217,7 @@ function add_action_links($links) {
 }
 
 
-/*
+/* 
 В функции регистрации сдеать проверки:
 $username   =   sanitize_user( $_POST['username'] );
 $password   =   esc_attr( $_POST['password'] );
