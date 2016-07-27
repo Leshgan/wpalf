@@ -123,6 +123,13 @@ function ajax_login() {
     die();
 }
 
+/**
+* Регистрация 
+*/
+function ajax_register() {
+    
+}
+
 
 /**
     Добавляем в настройки админки пункт "AJAX Login Form" 
