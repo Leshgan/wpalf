@@ -124,9 +124,44 @@ function ajax_login() {
 }
 
 /**
-* Регистрация 
+*  Валидация данных и запуск регистрации пользователя
 */
 function ajax_register() {
+    if ( 'POST' == $_SERVER['REQUEST_METHOD'] ) {
+        $email = $_POST['email'];
+        $login = sanitize_text_field( $_POST['username'] );
+
+        $errors = new WP_Error();
+       
+        if (! is_email($email) ) {
+            $errors->add('email', __('Wrong e-mail'));
+            return $errors;
+        }
+
+        if ( username_exists( $login ) ) {
+            $errors->add('login', __('Login already exists'));
+            return $errors;
+        }
+
+        if ( email_exists( $email ) ) {
+            $errors->add('email_exists', __('E-mail already exists'));
+            return $errors;
+        }
+
+        // Формирование пароля, который будет отправлен на почту пользователя...
+        $password = wp_generate_password( 12, false );
+
+        $user_data = array(
+            'user_login' => $login,
+            'user_email' => $email,
+            'user_pass' => $password,
+        );
+
+        $user_id = wp_insert_user( $user_data );
+        wp_new_user_notification( $user_id );
+
+        return $user_id;
+    }
     
 }
 
