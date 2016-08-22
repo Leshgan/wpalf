@@ -67,7 +67,7 @@
                     
                     
                     <?php if ($user_can_register) { ?> 
-                    <form id="wpalf-register-form" style="display:none;">
+                    <form id="wpalf-register-form" method="post" style="display:none;">
                         <div class="modal-body">
                             <div id="div-register-msg">
                                 <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
