@@ -128,6 +128,7 @@ function ajax_login() {
 */
 function ajax_register() {
     if ( 'POST' == $_SERVER['REQUEST_METHOD'] ) {
+        echo "123";
         $email = $_POST['email'];
         $login = sanitize_text_field( $_POST['username'] );
 
@@ -160,9 +161,14 @@ function ajax_register() {
         $user_id = wp_insert_user( $user_data );
         wp_new_user_notification( $user_id );
 
-        return $user_id;
+        if (! is_wp_error($user_id) ) {
+            echo json_encode( array('code' => 200) );
+        }
+
+        // return $user_id;
+        
     }
-    
+    die();
 }
 
 

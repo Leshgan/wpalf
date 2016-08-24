@@ -66,7 +66,7 @@
                     </form>
                     
                     <?php if ($user_can_register) { ?> 
-                    <form id="wpalf-register-form" style="display:none;">
+                    <form id="wpalf-register-form" method="post" style="display:none;">
                         <div class="modal-body">
                             <div id="div-register-msg">
                                 <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
@@ -87,6 +87,7 @@
                                 <a href="#" id="register_lost_btn" type="button" class="btn btn-link">Забыли пароль?</a>
                             </div>
                         </div>
+                        <?php wp_nonce_field( 'ajax-login-nonce', 'security' ); ?>
                     </form>
                     <?php } ?>
                     
