@@ -97,7 +97,7 @@ jQuery(document).ready(function($) {
     		case 'wpalf-register-form':
                 $('#wpalf-div-forms p.status').show().text(wpalf_login_object.loadingmessage);
                 $('#wpalf-div-forms p.status').css('color', 'black');
-                alert($('#wpalf-register-form #security').val());
+                // alert($('#wpalf-register-form #security').val());
                 $.ajax({
                     type: 'POST',
                     dataType: 'json',
@@ -105,7 +105,7 @@ jQuery(document).ready(function($) {
                     data: {
                         'action': 'ajaxregister', //calls wp_ajax_nopriv_ajaxregister
                         'username': $('#wpalf-register-form #register_username').val(), 
-                        'email'   : $('#wpalf-register-form #register_email'),
+                        'email'   : $('#wpalf-register-form #register_email').val(),
                         'security': $('#wpalf-register-form #security').val(),
                         'g-recaptcha-response': $('#g-recaptcha-response-2').val()
                     },
