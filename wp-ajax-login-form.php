@@ -79,7 +79,7 @@ function verify_login_captcha($user, $password) {
         $recaptcha_secret = get_option('captcha_secret_key');
         $response = wp_remote_get("https://www.google.com/recaptcha/api/siteverify?secret=". $recaptcha_secret ."&response=". $_POST['g-recaptcha-response']);
         file_put_contents(plugin_dir_path(__FILE__ ) . 'google_response.txt', "\n -----" . date("F j, Y, g:i a") . "----- \n", FILE_APPEND);
-        file_put_contents(plugin_dir_path(__FILE__ ) . 'google_response.txt', $response, FILE_APPEND);
+        // file_put_contents(plugin_dir_path(__FILE__ ) . 'google_response.txt', $response, FILE_APPEND);
         file_put_contents(plugin_dir_path(__FILE__ ) . 'google_response.txt', "\n -----", FILE_APPEND);
 
         if (is_array($response)) {
